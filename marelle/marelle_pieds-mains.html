@@ -1,0 +1,115 @@
+<!-- LES PIEDS SUIVENT MAINS -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="myutils.js"></script>
+</head>
+
+<body>
+    <a-scene background="color: #5280A7">
+
+        <a-assets>
+            <a-asset-item id="leftfoot" src="./assets/modeles/piedgauche.glb"></a-asset-item>
+            <a-asset-item id="rightfoot" src="./assets/modeles/pieddroite.glb"></a-asset-item>
+            <img id="sky" src="./assets/images/space.png">
+            <img id="texture1" src="./assets/images/texture1.png">
+            <img id="texture2" src="./assets/images/texture2.png">
+            <img id="texture3" src="./assets/images/texture3.png">
+            <img id="texture4" src="./assets/images/texture4.png">
+            <img id="texture5" src="./assets/images/texture5.png">
+            <img id="texture6" src="./assets/images/texture6.png">
+            <img id="texture7" src="./assets/images/texture7.png">
+            <img id="texture8" src="./assets/images/texture8.png">
+            <img id="texture9" src="./assets/images/texture9.png">
+        </a-assets>
+
+        <!-- INSEREZ VOTRE ENVIRONNEMENT, CI-DESSOUS ... -->
+
+        <a-scene>
+            <a-sky src="#sky"></a-sky>
+       
+            <a-cylinder position="0 -50 0"  
+             width="1" height="100" depth="1"
+             src="#texture1">
+            </a-cylinder>
+       
+            <a-cylinder position="3 -50 -2"  
+             width="1" height="100" depth="1"
+             src="#texture2">
+            </a-cylinder>
+             
+            <a-cylinder position="3 -50 -6"  
+             width="1" height="100" depth="1"
+             src="#texture3">
+            </a-cylinder>
+       
+            <a-cylinder position="-0,5 -50 -7,5"  
+             width="1" height="100" depth="1"
+             src="#texture4">
+            </a-cylinder>
+       
+            <a-cylinder position="-2,5 -50 -5,5"  
+             width="1" height="100" depth="1"
+             src="#texture5">
+            </a-cylinder>
+       
+            <a-cylinder position="-5,5 -50 -4"  
+             width="1" height="100" depth="1"
+             src="#texture6">
+            </a-cylinder>
+       
+            <a-cylinder position="-7 -50 -2"  
+             width="1" height="100" depth="1"
+             src="#texture7">
+            </a-cylinder>
+       
+            <a-cylinder position="-5 -50 -0,5"  
+             width="1" height="100" depth="1"
+             src="#texture8">
+            </a-cylinder>
+       
+            <a-cylinder position="-3,5 -50 1"  
+             width="1" height="100" depth="1"
+             src="#texture9">
+            </a-cylinder>
+       
+           </a-scene>
+
+        <!-- ... JUSQUE CI-DESSUS -->
+
+        <!-- PLAYER -->
+        <a-entity id="cameraRig">
+            
+            <!-- TETE -->
+            <a-entity id="tete" camera position="0 1.6 0" 
+                    look-controls wasd-controls>
+            </a-entity>
+
+            <!-- LEFT HAND -->
+            <a-entity id="maingauche" hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc">
+            </a-entity>
+
+            <!-- RIGHT HAND -->
+            <a-entity id="maindroite" hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc">
+            </a-entity>
+
+            <!-- PIEDS -->
+            <a-entity id="piedgauche" gltf-model="#leftfoot" 
+                      rotation="-90 0 180"
+                      follow-head-rotation="trace: false" follow-hand-position>
+            </a-entity>
+            <a-entity id="pieddroite" gltf-model="#rightfoot" 
+                      rotation="-90 0 180"
+                      follow-head-rotation="trace: false" follow-hand-position>
+            </a-entity>
+
+        </a-entity>
+
+    </a-scene>
+
+</body>
+
+</html>
