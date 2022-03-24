@@ -1,0 +1,175 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/elbobo/aframe-multisrc-component/b6d23310/dist/0.3/aframe-multisrc-component.js"></script>
+    
+  </head>
+
+  <body>
+
+   <a-scene fog="type: exponential; color: #ffffff; density: 0.10">
+
+    <a-assets>
+
+      <a-asset-item id="leftfoot" src="./assets/modeles/piedgauche.glb"></a-asset-item>
+      <a-asset-item id="rightfoot" src="./assets/modeles/pieddroite.glb"></a-asset-item>
+      
+      <img id="sky" src="./assets/images/chats.png">
+      
+      <img id="parcours" src="./assets/images/blue.jpeg">
+
+      <img id="centre" src="./assets/images/tex.png">
+
+    </a-assets>
+    
+     <a-sky src="#sky" material="fog: false"></a-sky>
+
+    
+     <a-cylinder position="0 -50 0"
+       open-ended="true"
+       height="100"
+       radius="0.3"
+       material="src: #parcours; repeat:1 100">
+     </a-cylinder>
+
+     <a-circle position="0 0 0"
+       radius="0.3"
+       rotation="-90 0 0"
+       src="#parcours"> 
+     </a-circle>
+
+
+
+     <a-cylinder position="0.5 -50 1" 
+       open-ended="true" 
+       height="100"
+       radius="0.3"
+       material="src: #parcours; repeat:1 100">
+     </a-cylinder>
+
+     <a-circle position="0.5 0 1"
+       radius="0.3"
+       rotation="-90 0 0"
+       src="#parcours"> 
+     </a-circle>
+      
+
+
+     <a-cylinder position="1.5 -50 1.5" 
+       open-ended="true" 
+       height="100"
+       radius="0.3"
+       material="src: #parcours; repeat:1 100">
+     </a-cylinder>
+
+     <a-circle position="1.5 0 1.5"
+       radius="0.3"
+       rotation="-90 0 0"
+       src="#parcours"> 
+     </a-circle>
+
+
+
+     <a-cylinder position="2.5 -50 1" 
+       open-ended="true" 
+       height="100"
+       radius="0.3"
+       material="src: #parcours; repeat:1 100">
+     </a-cylinder>
+
+     <a-circle position="2.5 0 1"
+       radius="0.3"
+       rotation="-90 0 0"
+       src="#parcours"> 
+     </a-circle>
+
+
+
+     <a-cylinder position="3 -50 0"  
+       open-ended="true"
+       height="100"
+       radius="0.3"
+       material="src: #parcours; repeat:1 100">
+     </a-cylinder>
+
+     <a-circle position="3 0 0"
+       radius="0.3"
+       rotation="-90 0 0"
+       src="#parcours"> 
+     </a-circle>
+
+
+
+     <a-cylinder position="2.5 -50 -1"  
+       open-ended="true"
+       height="100"
+       radius="0.3"
+       material="src: #parcours; repeat:1 100">
+     </a-cylinder>
+
+     <a-circle position="2.5 0 -1"
+       radius="0.3"
+       rotation="-90 0 0"
+       src="#parcours"> 
+     </a-circle>
+
+
+
+     <a-cylinder position="1.5 -50 -1.5"  
+       open-ended="true"
+       height="100"
+       radius="0.3"
+       material="src: #parcours; repeat:1 100">
+     </a-cylinder>
+
+     <a-circle position="1.5 0 -1.5"
+       radius="0.3"
+       rotation="-90 0 0"
+       src="#parcours"> 
+     </a-circle>
+
+
+
+     <a-cylinder position="0.5 -50 -1"  
+        open-ended="true"
+       height="100"
+       radius="0.3"
+       material="src: #parcours; repeat:1 100">
+     </a-cylinder>
+
+     <a-circle position="0.5 0 -1"
+       radius="0.3"
+       rotation="-90 0 0"
+       src="#parcours"> 
+     </a-circle>
+
+
+    
+     <a-cylinder position="1.5 -50 0"
+       height="200"
+       radius="0.9"
+       material="src: #centre; repeat:1 100">
+     </a-cylinder>
+
+     <a-entity id="cameraRig">
+            
+      <!-- TETE -->
+      <a-entity id="head" camera wasd-controls look-controls position="0 1.6 0"></a-entity>
+      
+      <!-- MAIN GAUCHE : utiliser oculus-touch-controls pour model3D -->
+      <a-entity id="gauche" oculus-touch-controls="hand: left; model:false">
+          <a-entity id="piedgauche" gltf-model="#leftfoot" rotation="-90 0 180"></a-entity>
+      </a-entity>
+      
+      <!-- MAIN DROITE : utiliser oculus-touch-controls pour model3D -->
+      <a-entity id="droite" oculus-touch-controls="hand: right; model:false">
+          <a-entity id="piedgauche" gltf-model="#rightfoot" rotation="-90 0 180">
+      </a-entity>
+
+  </a-entity>
+
+    </a-scene>
+    
+  </body>
+
+</html>
